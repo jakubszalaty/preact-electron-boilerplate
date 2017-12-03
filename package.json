@@ -12,7 +12,7 @@
         "test:watch": "npm run -s test -- --watch",
         "lint": "eslint src test"
     },
-    "keywords": ["preact", "boilerplate", "webpack"],
+    "keywords": ["preact", "boilerplate", "webpack", "electron"],
     "license": "MIT",
     "author": "Jakub Szalaty <jakub.szalaty@gmail.com>",
     "jest": {
