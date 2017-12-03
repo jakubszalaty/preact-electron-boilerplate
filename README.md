@@ -2,6 +2,38 @@
 
 Based on https://github.com/developit/preact-boilerplate
 
+## Setup
+
+```sh
+yarn install
+# or
+npm install
+```
+
+## Development mode
+
+```sh
+yarn dev
+# or
+npm run dev
+```
+
+## Production mode
+
+```sh
+yarn start
+# or
+npm run start
+```
+
+## Test
+
+```sh
+yarn test
+# or
+npm run test
+```
+
 ## License
 
 MIT
