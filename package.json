@@ -3,31 +3,46 @@
     "version": "6.0.0",
     "description": "Ready-to-go Preact starter project powered by webpack.",
     "scripts": {
-        "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --progress",
+        "dev": "concurrently --kill-others \"npm run webpack:dev\" \"sleep 2 && npm run electron:dev\" --names \"webpack,electron\"",
+        "webpack:dev": "NODE_ENV=development webpack-dev-server --inline --hot --progress",
+        "electron:dev": "NODE_ENV=development electron main.js",
         "start": "electron main.js",
         "prestart": "npm run build",
-        "build": "cross-env NODE_ENV=production webpack --progress",
+        "build": "NODE_ENV=production webpack --progress",
         "prebuild": "mkdirp build && ncp src/assets build/assets",
         "test": "npm run -s lint && jest --coverage",
         "test:watch": "npm run -s test -- --watch",
         "lint": "eslint src test"
     },
-    "keywords": ["preact", "boilerplate", "webpack", "electron"],
+    "keywords": [
+        "preact",
+        "boilerplate",
+        "webpack",
+        "electron"
+    ],
     "license": "MIT",
     "author": "Jakub Szalaty <jakub.szalaty@gmail.com>",
     "jest": {
-        "setupFiles": ["./test/setup.js"],
+        "setupFiles": [
+            "./test/setup.js"
+        ],
         "testURL": "http://localhost:8080",
-        "moduleFileExtensions": ["js", "jsx"],
-        "moduleDirectories": ["node_modules"],
+        "moduleFileExtensions": [
+            "js",
+            "jsx"
+        ],
+        "moduleDirectories": [
+            "node_modules"
+        ],
         "moduleNameMapper": {
-            "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-                "<rootDir>/__mocks__/fileMock.js",
+            "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
             "\\.(css|less)$": "identity-obj-proxy",
             "^react$": "preact-compat",
             "^react-dom$": "preact-compat"
         },
-        "collectCoverageFrom": ["src/**/*.{js,jsx}"]
+        "collectCoverageFrom": [
+            "src/**/*.{js,jsx}"
+        ]
     },
     "devDependencies": {
         "autoprefixer": "^7.0.1",
@@ -43,6 +58,7 @@
         "babel-register": "^6.24.0",
         "babel-runtime": "^6.11.6",
         "chai": "^4.0.2",
+        "concurrently": "^3.5.1",
         "copy-webpack-plugin": "^4.0.1",
         "core-js": "^2.4.1",
         "cross-env": "^5.0.1",
