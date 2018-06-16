@@ -39,7 +39,7 @@ npm run test
 MIT
 
 ## Links
-[Preact]: https://github.com/developit/preact
-[preact-compat]: https://github.com/developit/preact-compat
-[webpack]: https://webpack.github.io
-[Electron]: https://electronjs.org/
+* Preact - https://github.com/developit/preact
+* preact-compat - https://github.com/developit/preact-compat
+* Webpack - https://webpack.github.io
+* Electron - https://electronjs.org/
